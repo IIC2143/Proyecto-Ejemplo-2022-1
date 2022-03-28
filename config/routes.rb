@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/users', to: 'users#index'
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
   get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
   patch '/user/:id', to: 'users#update'
   delete '/user/:id', to: 'users#delete'
-  
+
   get '/publications', to: 'publications#index'
   get '/publications/new', to: 'publications#new'
   post '/publications', to: 'publications#create'
