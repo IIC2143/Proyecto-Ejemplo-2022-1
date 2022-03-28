@@ -819,3 +819,655 @@ Processing by PublicationsController#index as HTML
 Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 2.0ms | Allocations: 4382)
 
 
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3108607589338290480)[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameUsersToProfiles (20220328182214)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mALTER TABLE "users" RENAME TO "profiles"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER INDEX "users_pkey" RENAME TO "profiles_pkey"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "public"."users_id_seq" RENAME TO "profiles_id_seq"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328182214"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(3108607589338290480)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (44.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Proyecto_Ejemplo_development"[0m
+  [1m[35m (40.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Proyecto_Ejemplo_test"[0m
+  [1m[35m (389.6ms)[0m  [1m[35mCREATE DATABASE "Proyecto_Ejemplo_development" ENCODING = 'unicode'[0m
+  [1m[35m (220.9ms)[0m  [1m[35mCREATE DATABASE "Proyecto_Ejemplo_test" ENCODING = 'unicode'[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3108607589338290480)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOffers (20220328043451)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "offers" ("id" bigserial primary key, "title" character varying, "description" character varying, "salary" integer, "taken" boolean, "business" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043451"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20220328043800)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "description" character varying, "email" character varying, "work" character varying, "age" integer, "photo" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043800"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePublications (20220328043903)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "publications" ("id" bigserial primary key, "title" character varying, "content" character varying, "photo" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043903"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameUsersToProfiles (20220328182214)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" RENAME TO "profiles"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER INDEX "users_pkey" RENAME TO "profiles_pkey"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "public"."users_id_seq" RENAME TO "profiles_id_seq"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328182214"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-28 18:24:55.513133"], ["updated_at", "2022-03-28 18:24:55.513133"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3108607589338290480)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-03-28 15:39:20 -0300
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ignacioporte/.rvm/gems/ruby-2.6.8/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ignacioporte/.rvm/gems/ruby-2.6.8/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.9ms | Allocations: 343)
+Completed 200 OK in 36ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 2628)
+
+
+Started GET "/users" for ::1 at 2022-03-28 15:39:26 -0300
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/profiles" for ::1 at 2022-03-28 15:39:43 -0300
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (2.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:13
+  Rendered profiles/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 1333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.1ms | Allocations: 6930)
+Completed 200 OK in 60ms (Views: 52.5ms | ActiveRecord: 2.9ms | Allocations: 8479)
+
+
+Started GET "/profiles/new" for ::1 at 2022-03-28 15:39:45 -0300
+Processing by ProfilesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 17.1ms | Allocations: 3745)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.5ms | Allocations: 6810)
+Completed 200 OK in 95ms (Views: 26.2ms | ActiveRecord: 16.5ms | Allocations: 14241)
+
+
+Started POST "/profiles" for ::1 at 2022-03-28 15:39:56 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "profile"=>{"name"=>"juan", "description"=>"juan", "email"=>"juan", "work"=>"juan", "age"=>"1", "photo"=>"juan"}, "commit"=>"Create Profile"}
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mProfile Create (3.0ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "description", "email", "work", "age", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "juan"], ["description", "juan"], ["email", "juan"], ["work", "juan"], ["age", 1], ["photo", "juan"], ["created_at", "2022-03-28 18:39:56.015264"], ["updated_at", "2022-03-28 18:39:56.015264"]]
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 23ms (ActiveRecord: 8.8ms | Allocations: 2924)
+
+
+Started GET "/profiles" for ::1 at 2022-03-28 15:39:56 -0300
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (2.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:13
+  Rendered profiles/index.html.erb within layouts/application (Duration: 14.6ms | Allocations: 4534)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 4617)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 2.4ms | Allocations: 5013)
+
+
+  
+ActionView::Template::Error (The asset "juan" is not present in the asset pipeline.
+):
+    17:     <td><%= profile.email %></td>
+    18:     <td><%= profile.work %></td>
+    19:     <td><%= profile.age %></td>
+    20:     <td><%= image_tag(profile.photo) %></td>
+    21: 
+    22:     <td>
+    23:       <%= link_to "Editar", edit_profile_path(profile) %>
+  
+app/views/profiles/index.html.erb:20
+app/views/profiles/index.html.erb:13
+Started GET "/profiles/new" for ::1 at 2022-03-28 15:40:00 -0300
+Processing by ProfilesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1466)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4531)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 4956)
+
+
+Started POST "/profiles" for ::1 at 2022-03-28 15:40:04 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "profile"=>{"name"=>"juan", "description"=>"juan", "email"=>"juan", "work"=>"juan", "age"=>"1", "photo"=>"juan.com"}, "commit"=>"Create Profile"}
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mProfile Create (2.5ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "description", "email", "work", "age", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "juan"], ["description", "juan"], ["email", "juan"], ["work", "juan"], ["age", 1], ["photo", "juan.com"], ["created_at", "2022-03-28 18:40:04.516006"], ["updated_at", "2022-03-28 18:40:04.516006"]]
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 20ms (ActiveRecord: 8.3ms | Allocations: 2668)
+
+
+Started GET "/profiles" for ::1 at 2022-03-28 15:40:04 -0300
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (2.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:13
+  Rendered profiles/index.html.erb within layouts/application (Duration: 12.1ms | Allocations: 4529)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 4611)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.5ms | Allocations: 5000)
+
+
+  
+ActionView::Template::Error (The asset "juan" is not present in the asset pipeline.
+):
+    17:     <td><%= profile.email %></td>
+    18:     <td><%= profile.work %></td>
+    19:     <td><%= profile.age %></td>
+    20:     <td><%= image_tag(profile.photo) %></td>
+    21: 
+    22:     <td>
+    23:       <%= link_to "Editar", edit_profile_path(profile) %>
+  
+app/views/profiles/index.html.erb:20
+app/views/profiles/index.html.erb:13
+Started GET "/profiles/new" for ::1 at 2022-03-28 15:40:06 -0300
+Processing by ProfilesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1466)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 4532)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 4957)
+
+
+Started POST "/profiles" for ::1 at 2022-03-28 15:40:33 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "profile"=>{"name"=>"juan", "description"=>"juan", "email"=>"juan", "work"=>"juan", "age"=>"1", "photo"=>"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0NDQ0NDw4NDQ8NDQ0QFREWFhURFRYYHSghGBolGxUVITUhJSsrLi4uGCAzODMtNygtLisBCgoKDg0OGBAPGC0dHx0tLSstLSstLS0rLSstKy0rLS0rKystKy0tLS0tNy0rLS0rKy0rKy0rLS0rLS0tLTc3N//AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEBAAMBAQEBAAAAAAAAAAAAAQQGBwUCAwj/xABDEAACAgECAQkEBggDCQEAAAAAAQIDBAURBgcSEyExQVFhcSIygZEUQnKhorEjJFJTYoKSwXPR8BU0Q0R0o7Kz0jX/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/8QAGxEBAQEAAwEBAAAAAAAAAAAAAAERAhIxIVH/2gAMAwEAAhEDEQA/AOxAA0yAAAAAABQIAUCAAACkAAAACkAAAACgCAAAAAABQIUACAAAAABSFAhQQCgEAFIAKQpABSAAAAKCAAAAKCAAAAKQACghQIAABSACgAAAQCgGNqGfTi1SuyLI1VR7ZTey37kvF+S6wMgpzDXOU+TbhgUqEd9unvjzpteMa99l8X8EeFk8eahKuVdds4Oa2nfOXOvf2dkoVr7Md/PvCa67qWs4eJ/vOTTS31qM7Epv0j2v4I17J5SNKhvzZX3f4dDS/HzTjU5OTcpNylJ7ylJuUpPxbfayBOzrL5U8Hf8A3bMa9Kf/ALM3D5SNLsaU5X0N/vaW184ORxkA2v6L0/UcfKjz8a+q+Pe6pxnzfJpdnxMo/nXTs36PZGyMPai+qcLbaLV5KUJL70zqXC3H2JbGNOVbZVb2KeT0bhLy6SCS+LjH4hZW8kCaaTXWmt011prxKFQAAUgKBAABQCAUEKBAAAAAFBAAAAGHrGqU4WPZk3y5tda7F705PshFd7ZwziTiDI1K923PaEW1VTF/o6Y+C8X4y7/TZL1OUPiJ52W6q5fquLKUK0n1WT7J2/PdLyXmzVQzaAAMgAAAAAAANi4W4vytNkoJu7F39rHm+qK73W/qP7n4d52XRdXx86iORjz50JdTT6p1y74SXc1/rqP54Pa4U4ht0zJVsN5VT2jfVv1WQ37V/Et20/h3sNSu9g/LFya7q4W1SU67IxnGS7HFrdM/UNKAAIAUAQpAABQIAABQQCghQBpXKDxHLClVVXLabx8m1NPrU5JU1+vv2S/kRupxnlVsctVkn9TGoivT2pfnJhK09AAMAPR0TRcjPt6LHhvts5zl1V1R8ZP+3azqGhcD4WIoysisq7tc7opwT/hh2L47vzGtSa48DcOUbRljZkclRax8ppy5iS5tkVtOK8N0t157+BrOo4U8a11z6+qM4TXu21SW8LI+TXX93cEsYoACAAAAADqXJRqsp49uLJ7vGmpQT/d2bvb4SUv6kdChJNbo45yWWNajZHuniW7rzVlbT/P5nWYTcWR0njMB8wkmt0fRRACgAAAAAEAKBACgQoAEORcrmNzdQpt7rsWK/mhOSf3OJ145ryy0dWBb4PJqfxVco/8AjIJfHMz0NC0m3OyIY9PU5dc5tbxqgu2b/wAu9tI89s7LwLoKwcROcdsnISst37YLb2a/gn82wkmvW0bSqMKiNFEdox65Sfv2S75yfe2ZoBl0Yer6ZVm0WY9y3hNdq96El2Tj5pmm08NvIx56XmexlYXOnhZSj7NuPJ9W3jFPZOP1d4+r34jim02k3F7p7da6tuoJY4Lq2lZGFa6cmtwl1819sLF+1CX1l/pmTpmTiWJUZ0ZRj2V5dK/TUfwzj/xIfeu7q6l2vNw6ciDrvqhbW/q2RUlv4rwfmalqHJvhWNui27Hf7O/TVr4S9r8RdZ6tJ1ThTKogr6ubm4slzo5GL+kjzfGUVu4/el4ngpnTNN4M1LBm5YepVxTe8oTrmq5/aj7S+PaenmcIVZsXLMqx6cl/8xgynHnvxlCUdn8d35l1OrkANm4g4KzMJSsjtk48et2VJqcF4zh2r1W69DWQjbOTG+MNTUZJb3Y91UX3qScZ/lBnXDiPBcmtUwmu3ptvg4yT+5s7cSt8fH1Cbi9zKjJNbowz6hNxfUJWmWU+YyTW6PorKAFAhSFAgKAICgCFAAhpPK3RztOrn+6yq38JQnH82jdzWOUmClo+Xv8AVdEl6q6AL45hwLpay9QqjJb10J5FnV1NRa5sfjJx+G52g4lw7xJbpsbugqqlZdzE7LedLmxjvskk13t95k5HHWqz7MiNa8K6a197TZKksjsgOFXcRajP3s7L/lvnWvlFolXEGoQe8c7L/myLZr5SbQxezuwORabx/qNLXSyhlQ742RUJ7eUopfemb1pfG+nZEU5XrGn9aGQ+j2flP3WviMWco2MHlZHE2m1reWdivq32hdC2X9MN2adrnKRLdwwKko/vr0239mHd6v5ELY6MDiORxZqdjblm3LfurapX4EjGjr+oJ7rPzN/PKua+TkXE7O7nMeUXhiGP+vY0VGqcubfXFbRrm31Tiu5N9TXjt4nh0cZarX2Zk5eVkKrPziZl3HeZdRbj5NWPdXdXKuTUZVzW695NPbdPZ9ncMS2V+PJ3R0mq47/dRut+Vbivvkjshyfks/8A0p/9Fd/7ajrAq8fAAEafUJuLMqMk1ujDPqE3F9RZUZgPmEk1uj6KiFAAgKQAAABSAAa9ygQ30jN8q4S+VkX/AGNhPI4vq5+mZ8e39Uvlt9mDl/YFcoyOHa3ouPqNXO6WMpq9NtxnDp5QUku5raK6u7c1g6hwjjfS+H7caPvSWXVHym5Ocfvkjl7T7Gmmupp9TT8GGaAAMhm6PptmZkVY1W3Psb9qXuwilvKT8kkzCN65J8JyycnJa9mqlUp93OnJN7eih+ILPXlcVcH26bCu7pVfVOXRuSrdbrns2t1u+p7PrNaO28a4TyNNyq4reUa1bFLrbdclPZee0WvicSEXlMAAGQ9zg7RFqGZGmbaphCVtrj1ScU0lFPubbS9Nzwzo/JNgyUcrJa9mbroh583eU/zj8mKsn1+XBGHCjXdQqqW1VNOTXBbt7Lp6tlu+t9h0Y0Hk/wD0mp6vd42TSflK+bX3RRvxK6cfAAEUAAH1Cbi9zKjJNbowz6hNxZZRlg/Pp15kLqP1AAQKQAUEKAPyyqVZXZW+yyudb9JRa/ufoUDm/JNa/o2XQ/eqyIya8OdBR/Otnmcf8J2Qtnm4sHOqxud1cFvKqb7ZpLti+1+D37uzP4VX0XXtUxH1Rt6SyP8AWrIr+i1/I34hJsfzumDuuZw7gXycrcOiUn2yUFCb9XHZsxYcHaVF7rCrf2pWTXycmhqdXINK0y/MtVOPW7Jvbd/Ugv2py+qjtPDmjwwMWGPB85r2rJ7bdJY/el6diS8EjNxcWqmPMpqrqgvq1wjCPyR+wtWTA5FxrwpZhWzvog5Yc25JxW/0dvthLwj4Ps7vXroItmv53B3LK4Y065uU8KhyfW3GHRt/GOx+VXCGlwe6wqX9vn2L5SbLrPVyTQdDyNQtVdEfZTXSWtPoql4yfj5drOz4WLVgYirr6q8aqUt32y2TlKb82938TMophXFQrhCuEeyMIqEV6JHjccZXQ6ZmS751dCvWxqH5SYWTHgck1T+j5dz7bciMN/Hmw5352M3s1zk9xei0vH3W0rekvfnzpvmv+lRNjJVngAAoAAAAAAADOIAaZACgQAoEBQBzbjP9S17T87srvUITfYur9FNv0hOHyN7Nc5U9L+kabK2K3niTV3m62ubNemzUv5TN4U1L6Zg49ze8+Yq7P8SHsy+e2/xRKT16wAI0AAAAAAAAGicqeTKVeHhV9dmRdz9vTaEE/WU/wm9nPcZ/7S4jlYvao09bJ9sd63sv+5Jv0iWJW+YePGmqqmPu1Vwrj6Ril/Y/YAigAAAAAAAAAAziAGmQpAAKQAUEAHzdVGyEq5xUoTjKEovslFrZr5HL+Gsl6LqORpmVLm0WzU6bZdUd31Qm34SilFvulH1OpHicV8NUanTzLPYuhu6bkt5Vt9z8YvvX9wM4HPNI4hytItWn6tCXRR6qr1vPmw7E0/rw/EuzbuW/4+RXbCNlU42VzW8ZwkpRkvJoysuv0AAUAAAA1jinjKjB3qq2yMvsVcXvCtvs57Xf/Cuv07Qa/fjTiGGn40ubJfSbYyjTHvXc7H5R7fN7IxuTzRXiYfSWRavynG2fO96MEv0cX57Nv1kedwzwtdfd/tLVt53SanXRPb2dvdlNd23dDu7/AAN6Kk/QAEUAAAAAAAAAAGcQA0yAoAgBQIAAAKAMHWNJx82p05NcbIdq36pQf7UX2xfmjnt/C+qaTZK3S7pX0t7yoltzn6wfsz9VtI6gfFkFJefcwY55pvKJVzuiz8ezFtj1ScYylFesH7cfTZm2afq2LlLfHyKrv4YTTmvWPavij61LSsfJXMyaK7kuznxTa+zLtXwNVz+TfCm+dRbdjPuW6ugv6va/ERfrcrrI1xcrJRhFdspyUYr4s1vVOO9Nx0+ba8ma+rjrnx/rfs/Js8irk2U3vlZ91yXUlGGzS9Zylt8jYtL4S07FalXjRnNdfSXb3T38VzupfBIH1qstT1vWPZxavoWLLqdu8oc6P+I1vL+RGw8NcG4uBtZL9YyV19NOOyg/4I/V9et+ZsgIYAAKAAAAAAAAAAAAAM0AGmQAAAAAAAAAAAAB82QUl59zMWSaezMw+bIKX+YsViAsk09mQyoAAAAAAAAAAAAAAAAAAM0FIaZAUAAQoAhQABAABQBACgfFkFJfkzFlFp7MzT4sgpL8mLFYgLKLT2ZDKgAAAAAAAAAAAAAAAM0AGmVIAAQKAIAAAKAIEAAAAAAFH4ZPcfiAYrQgAAAAAAAAAAAAAAAf/9k="}, "commit"=>"Create Profile"}
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mProfile Create (3.4ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "description", "email", "work", "age", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "juan"], ["description", "juan"], ["email", "juan"], ["work", "juan"], ["age", 1], ["photo", "data:image/jpeg;base64,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"], ["created_at", "2022-03-28 18:40:33.317836"], ["updated_at", "2022-03-28 18:40:33.317836"]]
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 21ms (ActiveRecord: 9.2ms | Allocations: 2663)
+
+
+Started GET "/profiles" for ::1 at 2022-03-28 15:40:33 -0300
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (2.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:13
+  Rendered profiles/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 4543)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 4625)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.3ms | Allocations: 5014)
+
+
+  
+ActionView::Template::Error (The asset "juan" is not present in the asset pipeline.
+):
+    17:     <td><%= profile.email %></td>
+    18:     <td><%= profile.work %></td>
+    19:     <td><%= profile.age %></td>
+    20:     <td><%= image_tag(profile.photo) %></td>
+    21: 
+    22:     <td>
+    23:       <%= link_to "Editar", edit_profile_path(profile) %>
+  
+app/views/profiles/index.html.erb:20
+app/views/profiles/index.html.erb:13
+Started GET "/profiles/new" for ::1 at 2022-03-28 15:40:37 -0300
+Processing by ProfilesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1466)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 4533)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.0ms | Allocations: 4967)
+
+
+Started POST "/profiles" for ::1 at 2022-03-28 15:40:57 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "profile"=>{"name"=>"juan", "description"=>"juan", "email"=>"juan", "work"=>"juan", "age"=>"1", "photo"=>"data:image/jpeg;base64,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"}, "commit"=>"Create Profile"}
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mProfile Create (3.1ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "description", "email", "work", "age", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "juan"], ["description", "juan"], ["email", "juan"], ["work", "juan"], ["age", 1], ["photo", "data:image/jpeg;base64,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"], ["created_at", "2022-03-28 18:40:57.074253"], ["updated_at", "2022-03-28 18:40:57.074253"]]
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 23ms (ActiveRecord: 9.1ms | Allocations: 2676)
+
+
+Started GET "/profiles" for ::1 at 2022-03-28 15:40:57 -0300
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (2.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:13
+  Rendered profiles/index.html.erb within layouts/application (Duration: 12.2ms | Allocations: 4559)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 4641)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.7ms | Allocations: 5031)
+
+
+  
+ActionView::Template::Error (The asset "juan" is not present in the asset pipeline.
+):
+    17:     <td><%= profile.email %></td>
+    18:     <td><%= profile.work %></td>
+    19:     <td><%= profile.age %></td>
+    20:     <td><%= image_tag(profile.photo) %></td>
+    21: 
+    22:     <td>
+    23:       <%= link_to "Editar", edit_profile_path(profile) %>
+  
+app/views/profiles/index.html.erb:20
+app/views/profiles/index.html.erb:13
+Started GET "/profiles/new" for ::1 at 2022-03-28 15:41:24 -0300
+Processing by ProfilesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 20.3ms | Allocations: 1466)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 4531)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.0ms | Allocations: 4957)
+
+
+Started POST "/profiles" for ::1 at 2022-03-28 15:41:47 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "profile"=>{"name"=>"Juan Perez", "description"=>"trabajador weno", "email"=>"juan.perez@gmail.com", "work"=>"Ingeniero", "age"=>"10", "photo"=>"data:image/jpeg;base64,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"}, "commit"=>"Create Profile"}
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mProfile Create (2.9ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "description", "email", "work", "age", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Juan Perez"], ["description", "trabajador weno"], ["email", "juan.perez@gmail.com"], ["work", "Ingeniero"], ["age", 10], ["photo", "data:image/jpeg;base64,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"], ["created_at", "2022-03-28 18:41:47.175610"], ["updated_at", "2022-03-28 18:41:47.175610"]]
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 22ms (ActiveRecord: 9.1ms | Allocations: 2663)
+
+
+Started GET "/profiles" for ::1 at 2022-03-28 15:41:47 -0300
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (2.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:13
+  Rendered profiles/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 4572)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 4654)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.6ms | Allocations: 5043)
+
+
+  
+ActionView::Template::Error (The asset "juan" is not present in the asset pipeline.
+):
+    17:     <td><%= profile.email %></td>
+    18:     <td><%= profile.work %></td>
+    19:     <td><%= profile.age %></td>
+    20:     <td><%= image_tag(profile.photo) %></td>
+    21: 
+    22:     <td>
+    23:       <%= link_to "Editar", edit_profile_path(profile) %>
+  
+app/views/profiles/index.html.erb:20
+app/views/profiles/index.html.erb:13
+Started GET "/profiles/new" for ::1 at 2022-03-28 15:41:49 -0300
+Processing by ProfilesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1466)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 4531)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.0ms | Allocations: 4957)
+
+
+Started GET "/profiles/new" for ::1 at 2022-03-28 15:41:51 -0300
+Processing by ProfilesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1466)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 4530)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 4955)
+
+
+Started POST "/profiles" for ::1 at 2022-03-28 15:42:01 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "profile"=>{"name"=>"juan", "description"=>"trabajador weno", "email"=>"juan.perez@gmail.com", "work"=>"Ingeniero", "age"=>"9", "photo"=>"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBESEhISEhIREREREREREREREREQDxIRGBgZGhgYGBgcIS4lHB4rIRgYJjgmLC8xNTU1HCQ7QDszPy40NTEBDAwMEA8QGhISGDEhISExNDQ0MTE0MTQ0NDE0NDExNDE0NDE0MTQ0NDQ0NDExNDQ0ODQ0MTExMTQ0NDQ0NDQxMf/AABEIALcBEwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAACAAEDBAUGB//EADwQAAIBAgQEBAQDBgQHAAAAAAECAAMRBAUSISIxQVEGYXGBEzJSkRSxwQcjQnKh8BViktEkM2SCsuHx/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwT/xAAfEQEBAQEBAQEAAgMAAAAAAAAAARECITFBElEDInH/2gAMAwEAAhEDEQA/AHAhqIgIaiRSAhgRAQwIDgQgIwEkAhCAhgRKIQEBASQCICGogILCCxwIQEBgIQEcCEBAG0e0K0CpURN3ZUHdmCj+sAgI4ErJmFAmwrUSewqIT+ctIQdwQR3BuICtHtCAj2gDaPaPaPaEDaPaFaPaAGmMVkto1oFdlldV3lxxK6jeUWEXaEVhoNo5WBEVglZKVi0wIbRismKxisCHTHkmmKBy4ENREBDAmGjgQlEQEMCA4ENRGAhgQHAhqIgIaiA6iEBEBDAgICEBHAjgQFaM7qoLMQqqCWZiAoA5knpCtPJ/HXiRq9VqFN/+GpnSQp4atQc2JHNQdh02v2gaviLx6Teng7AA2auy3v8AyKfzP2nD4nGVKr66lRqj/U/EfbtKRqRlMuGtBH7KSPS0uYLE1EN6dR6Z+pHdD72/WUcGjXB1WHnab1OiSL2BP1KJK3I6DK/FGLp2FXTXT6m4X/1D/YzscrziliBwnS9t0a2r27zzfD0XNwFNuoAtbzFuUiw+MqUa1M1HZUDg3VOKwMSnXL2ACPaQ4PEJVRalNg6ML"}, "commit"=>"Create Profile"}
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mProfile Create (2.2ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "description", "email", "work", "age", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "juan"], ["description", "trabajador weno"], ["email", "juan.perez@gmail.com"], ["work", "Ingeniero"], ["age", 9], ["photo", "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBESEhISEhIREREREREREREREREQDxIRGBgZGhgYGBgcIS4lHB4rIRgYJjgmLC8xNTU1HCQ7QDszPy40NTEBDAwMEA8QGhISGDEhISExNDQ0MTE0MTQ0NDE0NDExNDE0NDE0MTQ0NDQ0NDExNDQ0ODQ0MTExMTQ0NDQ0NDQxMf/AABEIALcBEwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAACAAEDBAUGB//EADwQAAIBAgQEBAQDBgQHAAAAAAECAAMRBAUSISIxQVEGYXGBEzJSkRSxwQcjQnKh8BViktEkM2SCsuHx/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwT/xAAfEQEBAQEBAQEAAgMAAAAAAAAAARECITFBElEDInH/2gAMAwEAAhEDEQA/AHAhqIgIaiRSAhgRAQwIDgQgIwEkAhCAhgRKIQEBASQCICGogILCCxwIQEBgIQEcCEBAG0e0K0CpURN3ZUHdmCj+sAgI4ErJmFAmwrUSewqIT+ctIQdwQR3BuICtHtCAj2gDaPaPaPaEDaPaFaPaAGmMVkto1oFdlldV3lxxK6jeUWEXaEVhoNo5WBEVglZKVi0wIbRismKxisCHTHkmmKBy4ENREBDAmGjgQlEQEMCA4ENRGAhgQHAhqIgIaiA6iEBEBDAgICEBHAjgQFaM7qoLMQqqCWZiAoA5knpCtPJ/HXiRq9VqFN/+GpnSQp4atQc2JHNQdh02v2gaviLx6Teng7AA2auy3v8AyKfzP2nD4nGVKr66lRqj/U/EfbtKRqRlMuGtBH7KSPS0uYLE1EN6dR6Z+pHdD72/WUcGjXB1WHnab1OiSL2BP1KJK3I6DK/FGLp2FXTXT6m4X/1D/YzscrziliBwnS9t0a2r27zzfD0XNwFNuoAtbzFuUiw+MqUa1M1HZUDg3VOKwMSnXL2ACPaQ4PEJVRalNg6ML"], ["created_at", "2022-03-28 18:42:01.007767"], ["updated_at", "2022-03-28 18:42:01.007767"]]
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 20ms (ActiveRecord: 7.5ms | Allocations: 2671)
+
+
+Started GET "/profiles" for ::1 at 2022-03-28 15:42:01 -0300
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (2.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:13
+  Rendered profiles/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 4587)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4669)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.2ms | Allocations: 5059)
+
+
+  
+ActionView::Template::Error (The asset "juan" is not present in the asset pipeline.
+):
+    17:     <td><%= profile.email %></td>
+    18:     <td><%= profile.work %></td>
+    19:     <td><%= profile.age %></td>
+    20:     <td><%= image_tag(profile.photo) %></td>
+    21: 
+    22:     <td>
+    23:       <%= link_to "Editar", edit_profile_path(profile) %>
+  
+app/views/profiles/index.html.erb:20
+app/views/profiles/index.html.erb:13
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProfile Load (1.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProfile Destroy (1.1ms)[0m  [1m[31mDELETE FROM "profiles" WHERE "profiles"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProfile Destroy (0.9ms)[0m  [1m[31mDELETE FROM "profiles" WHERE "profiles"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProfile Destroy (1.0ms)[0m  [1m[31mDELETE FROM "profiles" WHERE "profiles"."id" = $1[0m  [["id", 3]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProfile Destroy (0.8ms)[0m  [1m[31mDELETE FROM "profiles" WHERE "profiles"."id" = $1[0m  [["id", 4]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProfile Destroy (1.0ms)[0m  [1m[31mDELETE FROM "profiles" WHERE "profiles"."id" = $1[0m  [["id", 5]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProfile Destroy (0.8ms)[0m  [1m[31mDELETE FROM "profiles" WHERE "profiles"."id" = $1[0m  [["id", 6]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/profiles" for ::1 at 2022-03-28 15:42:30 -0300
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (2.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:13
+  Rendered profiles/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 904)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 3970)
+Completed 200 OK in 18ms (Views: 14.3ms | ActiveRecord: 2.1ms | Allocations: 4387)
+
+
+Started GET "/profiles/new" for ::1 at 2022-03-28 15:42:31 -0300
+Processing by ProfilesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1466)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 5138)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.0ms | Allocations: 5569)
+
+
+Started POST "/profiles" for ::1 at 2022-03-28 15:42:42 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "profile"=>{"name"=>"juan", "description"=>"trabajador weno", "email"=>"juan.perez@gmail.com", "work"=>"Ingeniero", "age"=>"11", "photo"=>"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBESEhISEhIREREREREREREREREQDxIRGBgZGhgYGBgcIS4lHB4rIRgYJjgmLC8xNTU1HCQ7QDszPy40NTEBDAwMEA8QGhISGDEhISExNDQ0MTE0MTQ0NDE0NDExNDE0NDE0MTQ0NDQ0NDExNDQ0ODQ0MTExMTQ0NDQ0NDQxMf/AABEIALcBEwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAACAAEDBAUGB//EADwQAAIBAgQEBAQDBgQHAAAAAAECAAMRBAUSISIxQVEGYXGBEzJSkRSxwQcjQnKh8BViktEkM2SCsuHx/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwT/xAAfEQEBAQEBAQEAAgMAAAAAAAAAARECITFBElEDInH/2gAMAwEAAhEDEQA/AHAhqIgIaiRSAhgRAQwIDgQgIwEkAhCAhgRKIQEBASQCICGogILCCxwIQEBgIQEcCEBAG0e0K0CpURN3ZUHdmCj+sAgI4ErJmFAmwrUSewqIT+ctIQdwQR3BuICtHtCAj2gDaPaPaPaEDaPaFaPaAGmMVkto1oFdlldV3lxxK6jeUWEXaEVhoNo5WBEVglZKVi0wIbRismKxisCHTHkmmKBy4ENREBDAmGjgQlEQEMCA4ENRGAhgQHAhqIgIaiA6iEBEBDAgICEBHAjgQFaM7qoLMQqqCWZiAoA5knpCtPJ/HXiRq9VqFN/+GpnSQp4atQc2JHNQdh02v2gaviLx6Teng7AA2auy3v8AyKfzP2nD4nGVKr66lRqj/U/EfbtKRqRlMuGtBH7KSPS0uYLE1EN6dR6Z+pHdD72/WUcGjXB1WHnab1OiSL2BP1KJK3I6DK/FGLp2FXTXT6m4X/1D/YzscrziliBwnS9t0a2r27zzfD0XNwFNuoAtbzFuUiw+MqUa1M1HZUDg3VOKwMSnXL2ACPaQ4PEJVRalNg6ML"}, "commit"=>"Create Profile"}
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mProfile Create (2.2ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "description", "email", "work", "age", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "juan"], ["description", "trabajador weno"], ["email", "juan.perez@gmail.com"], ["work", "Ingeniero"], ["age", 11], ["photo", "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBESEhISEhIREREREREREREREREQDxIRGBgZGhgYGBgcIS4lHB4rIRgYJjgmLC8xNTU1HCQ7QDszPy40NTEBDAwMEA8QGhISGDEhISExNDQ0MTE0MTQ0NDE0NDExNDE0NDE0MTQ0NDQ0NDExNDQ0ODQ0MTExMTQ0NDQ0NDQxMf/AABEIALcBEwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAACAAEDBAUGB//EADwQAAIBAgQEBAQDBgQHAAAAAAECAAMRBAUSISIxQVEGYXGBEzJSkRSxwQcjQnKh8BViktEkM2SCsuHx/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwT/xAAfEQEBAQEBAQEAAgMAAAAAAAAAARECITFBElEDInH/2gAMAwEAAhEDEQA/AHAhqIgIaiRSAhgRAQwIDgQgIwEkAhCAhgRKIQEBASQCICGogILCCxwIQEBgIQEcCEBAG0e0K0CpURN3ZUHdmCj+sAgI4ErJmFAmwrUSewqIT+ctIQdwQR3BuICtHtCAj2gDaPaPaPaEDaPaFaPaAGmMVkto1oFdlldV3lxxK6jeUWEXaEVhoNo5WBEVglZKVi0wIbRismKxisCHTHkmmKBy4ENREBDAmGjgQlEQEMCA4ENRGAhgQHAhqIgIaiA6iEBEBDAgICEBHAjgQFaM7qoLMQqqCWZiAoA5knpCtPJ/HXiRq9VqFN/+GpnSQp4atQc2JHNQdh02v2gaviLx6Teng7AA2auy3v8AyKfzP2nD4nGVKr66lRqj/U/EfbtKRqRlMuGtBH7KSPS0uYLE1EN6dR6Z+pHdD72/WUcGjXB1WHnab1OiSL2BP1KJK3I6DK/FGLp2FXTXT6m4X/1D/YzscrziliBwnS9t0a2r27zzfD0XNwFNuoAtbzFuUiw+MqUa1M1HZUDg3VOKwMSnXL2ACPaQ4PEJVRalNg6ML"], ["created_at", "2022-03-28 18:42:42.666940"], ["updated_at", "2022-03-28 18:42:42.666940"]]
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 19ms (ActiveRecord: 7.8ms | Allocations: 2687)
+
+
+Started GET "/profiles" for ::1 at 2022-03-28 15:42:42 -0300
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (2.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:13
+  Rendered profiles/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1011)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 4077)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 2.5ms | Allocations: 4494)
+
+
+Started GET "/profiles/7/edit" for ::1 at 2022-03-28 15:42:53 -0300
+Processing by ProfilesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mProfile Load (1.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:23:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1866)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 4867)
+Completed 200 OK in 47ms (Views: 17.3ms | ActiveRecord: 4.0ms | Allocations: 10781)
+
+
+Started PATCH "/profile/7" for ::1 at 2022-03-28 15:43:03 -0300
+Processing by ProfilesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "profile"=>{"name"=>"juan", "description"=>"trabajador weno", "email"=>"juan.perez@gmail.com", "work"=>"Ingeniero", "age"=>"11", "photo"=>"https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?size=626&ext=jpg&ga=GA1.2.1420692388.1641168000"}, "commit"=>"Update Profile", "id"=>"7"}
+  [1m[36mProfile Load (2.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:28:in `update'
+  [1m[36mProfile Update (2.5ms)[0m  [1m[33mUPDATE "profiles" SET "photo" = $1, "updated_at" = $2 WHERE "profiles"."id" = $3[0m  [["photo", "https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?size=626&ext=jpg&ga=GA1.2.1420692388.1641168000"], ["updated_at", "2022-03-28 18:43:03.901155"], ["id", 7]]
+  ↳ app/controllers/profiles_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:28:in `update'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 26ms (ActiveRecord: 11.0ms | Allocations: 3300)
+
+
+Started GET "/profiles" for ::1 at 2022-03-28 15:43:03 -0300
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (2.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:13
+  Rendered profiles/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1006)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 4071)
+Completed 200 OK in 19ms (Views: 15.4ms | ActiveRecord: 2.4ms | Allocations: 4489)
+
+
+Started DELETE "/profile/7" for ::1 at 2022-03-28 15:43:07 -0300
+Processing by ProfilesController#delete as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"7"}
+  [1m[36mProfile Load (2.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:36:in `delete'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:37:in `delete'
+  [1m[36mProfile Destroy (2.3ms)[0m  [1m[31mDELETE FROM "profiles" WHERE "profiles"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/profiles_controller.rb:37:in `delete'
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:37:in `delete'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 27ms (ActiveRecord: 12.1ms | Allocations: 2812)
+
+
+Started GET "/profiles" for ::1 at 2022-03-28 15:43:07 -0300
+Processing by ProfilesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (2.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:13
+  Rendered profiles/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 905)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 3971)
+Completed 200 OK in 21ms (Views: 17.5ms | ActiveRecord: 2.6ms | Allocations: 4388)
+
+
+Started GET "/publications" for ::1 at 2022-03-28 15:43:13 -0300
+Processing by PublicationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (2.8ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:10
+  Rendered publications/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 1139)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 4205)
+Completed 200 OK in 26ms (Views: 16.9ms | ActiveRecord: 2.8ms | Allocations: 5333)
+
+
+Started GET "/publications/new" for ::1 at 2022-03-28 15:43:14 -0300
+Processing by PublicationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publications/new.html.erb within layouts/application
+  Rendered publications/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1279)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 4342)
+Completed 200 OK in 37ms (Views: 14.1ms | ActiveRecord: 9.9ms | Allocations: 9084)
+
+
+Started POST "/publications" for ::1 at 2022-03-28 15:43:22 -0300
+Processing by PublicationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "publication"=>{"title"=>"turno weno", "content"=>"si", "photo"=>"https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?size=626&ext=jpg&ga=GA1.2.1420692388.1641168000"}, "commit"=>"Create Publication"}
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[36mPublication Create (3.2ms)[0m  [1m[32mINSERT INTO "publications" ("title", "content", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "turno weno"], ["content", "si"], ["photo", "https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?size=626&ext=jpg&ga=GA1.2.1420692388.1641168000"], ["created_at", "2022-03-28 18:43:22.273346"], ["updated_at", "2022-03-28 18:43:22.273346"]]
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 21ms (ActiveRecord: 9.3ms | Allocations: 2630)
+
+
+Started GET "/publications" for ::1 at 2022-03-28 15:43:22 -0300
+Processing by PublicationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (2.3ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:10
+  Rendered publications/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1005)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 4070)
+Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 2.3ms | Allocations: 4488)
+
+
+Started GET "/publications/1/edit" for ::1 at 2022-03-28 15:43:24 -0300
+Processing by PublicationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPublication Load (2.2ms)[0m  [1m[34mSELECT "publications".* FROM "publications" WHERE "publications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publications_controller.rb:23:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering publications/edit.html.erb within layouts/application
+  Rendered publications/edit.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1171)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 4344)
+Completed 200 OK in 35ms (Views: 19.2ms | ActiveRecord: 2.2ms | Allocations: 6178)
+
+
+Started PATCH "/publication/1" for ::1 at 2022-03-28 15:43:25 -0300
+Processing by PublicationsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "publication"=>{"title"=>"turno weno", "content"=>"si", "photo"=>"https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?size=626&ext=jpg&ga=GA1.2.1420692388.1641168000"}, "commit"=>"Update Publication", "id"=>"1"}
+  [1m[36mPublication Load (2.1ms)[0m  [1m[34mSELECT "publications".* FROM "publications" WHERE "publications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publications_controller.rb:27:in `update'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 10ms (ActiveRecord: 2.1ms | Allocations: 1192)
+
+
+Started GET "/publications" for ::1 at 2022-03-28 15:43:25 -0300
+Processing by PublicationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (2.4ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:10
+  Rendered publications/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 996)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 4061)
+Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 2.4ms | Allocations: 4479)
+
+
+Started GET "/publications/1/edit" for ::1 at 2022-03-28 15:43:27 -0300
+Processing by PublicationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPublication Load (2.4ms)[0m  [1m[34mSELECT "publications".* FROM "publications" WHERE "publications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publications_controller.rb:23:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering publications/edit.html.erb within layouts/application
+  Rendered publications/edit.html.erb within layouts/application (Duration: 4.7ms | Allocations: 932)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 44.8ms | Allocations: 4152)
+Completed 200 OK in 58ms (Views: 48.3ms | ActiveRecord: 2.4ms | Allocations: 5723)
+
+
+Started PATCH "/publication/1" for ::1 at 2022-03-28 15:43:29 -0300
+Processing by PublicationsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "publication"=>{"title"=>"turno malo", "content"=>"si", "photo"=>"https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?size=626&ext=jpg&ga=GA1.2.1420692388.1641168000"}, "commit"=>"Update Publication", "id"=>"1"}
+  [1m[36mPublication Load (2.1ms)[0m  [1m[34mSELECT "publications".* FROM "publications" WHERE "publications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publications_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:28:in `update'
+  [1m[36mPublication Update (2.6ms)[0m  [1m[33mUPDATE "publications" SET "title" = $1, "updated_at" = $2 WHERE "publications"."id" = $3[0m  [["title", "turno malo"], ["updated_at", "2022-03-28 18:43:29.817465"], ["id", 1]]
+  ↳ app/controllers/publications_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:28:in `update'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 24ms (ActiveRecord: 10.6ms | Allocations: 3208)
+
+
+Started GET "/publications" for ::1 at 2022-03-28 15:43:29 -0300
+Processing by PublicationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (2.5ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:10
+  Rendered publications/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 991)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 4057)
+Completed 200 OK in 18ms (Views: 14.3ms | ActiveRecord: 2.5ms | Allocations: 4474)
+
+
+Started DELETE "/publication/1" for ::1 at 2022-03-28 15:43:32 -0300
+Processing by PublicationsController#delete as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mPublication Load (2.2ms)[0m  [1m[34mSELECT "publications".* FROM "publications" WHERE "publications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publications_controller.rb:36:in `delete'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:37:in `delete'
+  [1m[36mPublication Destroy (2.7ms)[0m  [1m[31mDELETE FROM "publications" WHERE "publications"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/publications_controller.rb:37:in `delete'
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:37:in `delete'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 25ms (ActiveRecord: 11.9ms | Allocations: 2785)
+
+
+Started GET "/publications" for ::1 at 2022-03-28 15:43:32 -0300
+Processing by PublicationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (2.4ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:10
+  Rendered publications/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 900)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 3965)
+Completed 200 OK in 18ms (Views: 14.5ms | ActiveRecord: 2.4ms | Allocations: 4382)
+
+
