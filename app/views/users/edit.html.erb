@@ -1,0 +1,31 @@
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+    <div>
+    <%= f.label :work %>
+    <%= f.text_field :work %>
+  </div>
+    </div>
+    <div>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+  </div>
+  </div>
+    <div>
+    <%= f.label :photo %>
+    <%= f.text_field :photo %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
