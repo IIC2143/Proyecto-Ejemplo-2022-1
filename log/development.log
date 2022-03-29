@@ -1,69 +1,61 @@
-Started GET "/" for ::1 at 2022-03-21 09:12:13 -0300
+Started GET "/" for ::1 at 2022-03-29 00:05:13 -0300
   
-ActiveRecord::NoDatabaseError (connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "Proyecto_Ejemplo_development" does not exist
+ActiveRecord::NoDatabaseError (connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "ProyectoEjemplo_development" does not exist
 ):
   
-activerecord (6.1.5) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
-activerecord (6.1.5) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
-activerecord (6.1.5) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
-activerecord (6.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
-activerecord (6.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
-activerecord (6.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
-activerecord (6.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
-activerecord (6.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
-activerecord (6.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
-activerecord (6.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
-activerecord (6.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
-activerecord (6.1.5) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
-activerecord (6.1.5) lib/active_record/connection_handling.rb:283:in `connection'
-activerecord (6.1.5) lib/active_record/migration.rb:611:in `connection'
-activerecord (6.1.5) lib/active_record/migration.rb:606:in `build_watcher'
-activerecord (6.1.5) lib/active_record/migration.rb:588:in `block in call'
-activerecord (6.1.5) lib/active_record/migration.rb:587:in `synchronize'
-activerecord (6.1.5) lib/active_record/migration.rb:587:in `call'
-actionpack (6.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
-activesupport (6.1.5) lib/active_support/callbacks.rb:98:in `run_callbacks'
-actionpack (6.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
-actionpack (6.1.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (6.1.5) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
-actionpack (6.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+activerecord (6.0.4.7) lib/active_record/connection_adapters/postgresql_adapter.rb:50:in `rescue in postgresql_connection'
+activerecord (6.0.4.7) lib/active_record/connection_adapters/postgresql_adapter.rb:33:in `postgresql_connection'
+activerecord (6.0.4.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.4.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.4.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.4.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.4.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.4.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.4.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:1125:in `retrieve_connection'
+activerecord (6.0.4.7) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.4.7) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.4.7) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.4.7) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
 web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
 web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
 web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
 web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
-actionpack (6.1.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (6.1.5) lib/rails/rack/logger.rb:37:in `call_app'
-railties (6.1.5) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (6.1.5) lib/active_support/tagged_logging.rb:99:in `block in tagged'
-activesupport (6.1.5) lib/active_support/tagged_logging.rb:37:in `tagged'
-activesupport (6.1.5) lib/active_support/tagged_logging.rb:99:in `tagged'
-railties (6.1.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4.7) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4.7) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4.7) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4.7) lib/rails/rack/logger.rb:26:in `call'
 sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (6.1.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (6.1.5) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/request_id.rb:27:in `call'
 rack (2.2.3) lib/rack/method_override.rb:24:in `call'
 rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (6.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (6.1.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (6.1.5) lib/action_dispatch/middleware/static.rb:24:in `call'
+activesupport (6.0.4.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/static.rb:126:in `call'
 rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-actionpack (6.1.5) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
-rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
-webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
 rack-proxy (0.7.2) lib/rack/proxy.rb:67:in `call'
-railties (6.1.5) lib/rails/engine.rb:539:in `call'
-puma (5.6.2) lib/puma/configuration.rb:252:in `call'
-puma (5.6.2) lib/puma/request.rb:77:in `block in handle_request'
-puma (5.6.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
-puma (5.6.2) lib/puma/request.rb:76:in `handle_request'
-puma (5.6.2) lib/puma/server.rb:441:in `process_client'
-puma (5.6.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
-  [1m[35m (205.0ms)[0m  [1m[35mCREATE DATABASE "Proyecto_Ejemplo_development" ENCODING = 'unicode'[0m
-  [1m[35m (80.2ms)[0m  [1m[35mCREATE DATABASE "Proyecto_Ejemplo_test" ENCODING = 'unicode'[0m
-Started GET "/" for ::1 at 2022-03-21 09:17:18 -0300
+railties (6.0.4.7) lib/rails/engine.rb:527:in `call'
+puma (4.3.11) lib/puma/configuration.rb:228:in `call'
+puma (4.3.11) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.11) lib/puma/server.rb:472:in `process_client'
+puma (4.3.11) lib/puma/server.rb:328:in `block in run'
+puma (4.3.11) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (325.0ms)[0m  [1m[35mCREATE DATABASE "ProyectoEjemplo_development" ENCODING = 'unicode'[0m
+  [1m[35m (63.9ms)[0m  [1m[35mCREATE DATABASE "ProyectoEjemplo_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2022-03-29 00:09:06 -0300
 Processing by Rails::WelcomeController#index as HTML
-  Rendering /Users/magdalenamunoz/.rvm/gems/ruby-2.6.6/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /Users/magdalenamunoz/.rvm/gems/ruby-2.6.6/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.7ms | Allocations: 344)
-Completed 200 OK in 11ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 3206)
+  Rendering /Users/magdalenamunoz/.rvm/gems/ruby-2.6.6/gems/railties-6.0.4.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/magdalenamunoz/.rvm/gems/ruby-2.6.6/gems/railties-6.0.4.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.6ms | Allocations: 305)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 1702)
 
 
