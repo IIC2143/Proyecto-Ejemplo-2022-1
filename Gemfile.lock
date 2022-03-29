@@ -235,6 +235,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activesupport (~> 6.1.5)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
