@@ -1,0 +1,27 @@
+<h1>Publications</h1>
+
+<%= link_to "Crear Publicación", publications_new_path %>
+<table align='center'>
+  <tr>
+    <thead>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Photo</th>
+    </thead>
+  </tr>
+    <% @publications.each do |publication| %>
+  <tr>
+    <td><%= publication.title %></td>
+    <td><%= publication.content %></td>
+    <td><%= image_tag(publication.photo) %></td>
+
+    <td>
+      <%= link_to "Editar", edit_publication_path(publication) %>
+      <%= link_to "Eliminar", publication, method: :delete, data: { confirm: "Deseas eliminar esta publicación?"} %>
+    </td>
+  </tr>
+    <% end %>
+</table>
+
+<br>
+<%= link_to "Profiles", profiles_path %>
