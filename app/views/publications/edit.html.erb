@@ -1,0 +1,20 @@
+<h1>Edit Publication</h1>
+
+<%= form_for @publication do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </div>
+  </div>
+    <div>
+    <%= f.label :photo %>
+    <%= f.text_field :photo %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
