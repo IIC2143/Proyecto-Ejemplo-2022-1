@@ -9,7 +9,6 @@
       <th>Email</th>
       <th>Trabajo</th>
       <th>Edad</th>
-      <th>Foto</th>
     </thead>
   </tr>
     <% @profiles.each do |profile| %>
@@ -19,7 +18,6 @@
     <td><%= profile.email %></td>
     <td><%= profile.work %></td>
     <td><%= profile.age %></td>
-    <td><%= image_tag(profile.photo) %></td>
 
     <td>
       <%= link_to "Editar", edit_profile_path(profile) %>

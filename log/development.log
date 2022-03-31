@@ -2373,3 +2373,1040 @@ Processing by ProfilesController#index as HTML
 Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 1.0ms | Allocations: 4964)
 
 
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE DATABASE "ProyectoEjemplo_development" ENCODING = 'unicode'[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE DATABASE "ProyectoEjemplo_test" ENCODING = 'unicode'[0m
+  [1m[35m (43.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (9.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7593330866428878795)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOffers (20220328043451)
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(7593330866428878795)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7593330866428878795)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOffers (20220328043451)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.7ms)[0m  [1m[35mCREATE TABLE "offers" ("id" bigserial primary key, "title" character varying, "description" character varying, "salary" integer, "taken" boolean, "business" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043451"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20220328043800)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "description" character varying, "email" character varying, "work" character varying, "age" integer, "photo" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043800"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePublications (20220328043903)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "publications" ("id" bigserial primary key, "title" character varying, "content" character varying, "photo" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043903"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameUsersToProfiles (20220328182214)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" RENAME TO "profiles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER INDEX "users_pkey" RENAME TO "profiles_pkey"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "public"."users_id_seq" RENAME TO "profiles_id_seq"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328182214"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-31 03:10:55.611169"], ["updated_at", "2022-03-31 03:10:55.611169"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7593330866428878795)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-03-31 00:11:05 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (22.3ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 27.0ms | Allocations: 1766)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/magdalenamunoz/Desktop/Proyecto-Ejemplo/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+[Webpacker] Hash: 2b009fa413816c1165c8
+Version: webpack 4.46.0
+Time: 796ms
+Built at: 03/31/2022 12:11:08 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-4ff707c731c80cbe6d96.js    124 KiB  application  [emitted] [immutable]  application
+js/application-4ff707c731c80cbe6d96.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-4ff707c731c80cbe6d96.js js/application-4ff707c731c80cbe6d96.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 2337ms (Views: 2307.2ms | ActiveRecord: 23.5ms | Allocations: 27456)
+
+
+Started GET "/mini-profiler-resources/includes.js?v=35a79b300ab5afa978cb59af0b05e059" for ::1 at 2022-03-31 00:11:08 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/mini-profiler-resources/includes.js"):
+  
+actionpack (6.0.4.7) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4.7) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4.7) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4.7) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4.7) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.2) lib/rack/proxy.rb:67:in `call'
+railties (6.0.4.7) lib/rails/engine.rb:527:in `call'
+puma (4.3.11) lib/puma/configuration.rb:228:in `call'
+puma (4.3.11) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.11) lib/puma/server.rb:472:in `process_client'
+puma (4.3.11) lib/puma/server.rb:328:in `block in run'
+puma (4.3.11) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/publications/new" for ::1 at 2022-03-31 00:11:09 -0300
+Processing by PublicationsController#new as HTML
+  Rendering publications/new.html.erb within layouts/application
+  Rendered publications/new.html.erb within layouts/application (Duration: 29.3ms | Allocations: 5087)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 35.1ms | ActiveRecord: 5.5ms | Allocations: 13061)
+
+
+Started POST "/publications" for ::1 at 2022-03-31 00:11:14 -0300
+Processing by PublicationsController#create as HTML
+  Parameters: {"authenticity_token"=>"5koUZaeO/UOLEBfkS44Q0c/rqFzFLhD4eJVh7UghqNtHd9ugLIzsN9GOQwBbv3v7iunBbRXIirY/eQMPPBpo3g==", "publication"=>{"title"=>"r", "content"=>"j", "photo"=>"kj"}, "commit"=>"Create Publication"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[36mPublication Create (1.4ms)[0m  [1m[32mINSERT INTO "publications" ("title", "content", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "r"], ["content", "j"], ["photo", "kj"], ["created_at", "2022-03-31 03:11:14.045906"], ["updated_at", "2022-03-31 03:11:14.045906"]]
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 9ms (ActiveRecord: 1.9ms | Allocations: 2979)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:11:14 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.2ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 4561)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 5040)
+
+
+  
+ActionView::Template::Error (The asset "kj" is not present in the asset pipeline.
+):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <td><%= image_tag(publication.photo) %></td>
+    17: 
+    18:     <td>
+    19:       <%= link_to "Editar", edit_publication_path(publication) %>
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+Started GET "/publications/new" for ::1 at 2022-03-31 00:11:15 -0300
+Processing by PublicationsController#new as HTML
+  Rendering publications/new.html.erb within layouts/application
+  Rendered publications/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 915)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4878)
+
+
+Started POST "/publications" for ::1 at 2022-03-31 00:11:33 -0300
+Processing by PublicationsController#create as HTML
+  Parameters: {"authenticity_token"=>"Bnz+/+ASsMzyHncOHQWfLfxd/uirxRA3bgYPCRbXmySnQTE6axChuKiAI+oNNPQHuV+X2Xsjinkp6m3rYuxbIQ==", "publication"=>{"title"=>"oij", "content"=>"oij", "photo"=>"https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"}, "commit"=>"Create Publication"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[36mPublication Create (8.0ms)[0m  [1m[32mINSERT INTO "publications" ("title", "content", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "oij"], ["content", "oij"], ["photo", "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"], ["created_at", "2022-03-31 03:11:33.500617"], ["updated_at", "2022-03-31 03:11:33.500617"]]
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 15ms (ActiveRecord: 8.8ms | Allocations: 2767)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:11:33 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.3ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 4552)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms | Allocations: 5022)
+
+
+  
+ActionView::Template::Error (The asset "kj" is not present in the asset pipeline.
+):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <td><%= image_tag(publication.photo) %></td>
+    17: 
+    18:     <td>
+    19:       <%= link_to "Editar", edit_publication_path(publication) %>
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+Started GET "/publications/new" for ::1 at 2022-03-31 00:11:40 -0300
+Processing by PublicationsController#new as HTML
+  Rendering publications/new.html.erb within layouts/application
+  Rendered publications/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 914)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 4872)
+
+
+Started POST "/publications" for ::1 at 2022-03-31 00:11:45 -0300
+Processing by PublicationsController#create as HTML
+  Parameters: {"authenticity_token"=>"gvGQ0uauUFDMfTDMkdvy+CApbWz5IkP8AM1tcqiUt9ojzF8XbaxBJJbjZCiB6pnSZSsEXSnE2bJHIQ+Q3K933w==", "publication"=>{"title"=>"oij", "content"=>"oil", "photo"=>"https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"}, "commit"=>"Create Publication"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[36mPublication Create (0.4ms)[0m  [1m[32mINSERT INTO "publications" ("title", "content", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "oij"], ["content", "oil"], ["photo", "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"], ["created_at", "2022-03-31 03:11:45.346418"], ["updated_at", "2022-03-31 03:11:45.346418"]]
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms | Allocations: 2779)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:11:45 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.3ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 26.8ms | Allocations: 4566)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.3ms | Allocations: 5037)
+
+
+  
+ActionView::Template::Error (The asset "kj" is not present in the asset pipeline.
+):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <td><%= image_tag(publication.photo) %></td>
+    17: 
+    18:     <td>
+    19:       <%= link_to "Editar", edit_publication_path(publication) %>
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+Started GET "/publications" for ::1 at 2022-03-31 00:11:53 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.3ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 4564)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms | Allocations: 5032)
+
+
+  
+ActionView::Template::Error (The asset "kj" is not present in the asset pipeline.
+):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <td><%= image_tag(publication.photo) %></td>
+    17: 
+    18:     <td>
+    19:       <%= link_to "Editar", edit_publication_path(publication) %>
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+Started GET "/publications/new" for ::1 at 2022-03-31 00:11:57 -0300
+Processing by PublicationsController#new as HTML
+  Rendering publications/new.html.erb within layouts/application
+  Rendered publications/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 914)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4864)
+
+
+Started GET "/publications/new" for ::1 at 2022-03-31 00:11:58 -0300
+Processing by PublicationsController#new as HTML
+  Rendering publications/new.html.erb within layouts/application
+  Rendered publications/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 914)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 4856)
+
+
+Started POST "/publications" for ::1 at 2022-03-31 00:12:02 -0300
+Processing by PublicationsController#create as HTML
+  Parameters: {"authenticity_token"=>"ghcNxJ2mnAiuKiE+YChE5l2nI2FmO32YN9mpX1+Q7EJG7E52jV0hzhzfCfO7+FedSyiYhTxwemsI1KEPUL9/NQ==", "publication"=>{"title"=>"jo", "content"=>"jo", "photo"=>"https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"}, "commit"=>"Create Publication"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[36mPublication Create (0.3ms)[0m  [1m[32mINSERT INTO "publications" ("title", "content", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "jo"], ["content", "jo"], ["photo", "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"], ["created_at", "2022-03-31 03:12:02.885811"], ["updated_at", "2022-03-31 03:12:02.885811"]]
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 2758)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:12:02 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.2ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 4578)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 5053)
+
+
+  
+ActionView::Template::Error (The asset "kj" is not present in the asset pipeline.
+):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <td><%= image_tag(publication.photo) %></td>
+    17: 
+    18:     <td>
+    19:       <%= link_to "Editar", edit_publication_path(publication) %>
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+Started GET "/publications/new" for ::1 at 2022-03-31 00:13:19 -0300
+Processing by PublicationsController#new as HTML
+  Rendering publications/new.html.erb within layouts/application
+  Rendered publications/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1149)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 6026)
+
+
+Started POST "/publications" for ::1 at 2022-03-31 00:13:22 -0300
+Processing by PublicationsController#create as HTML
+  Parameters: {"authenticity_token"=>"wuuhTBIzeGbuFWUtDWN6pnVe4WXNoIMQ1IoLualfqNRj1m6JmTFpErSLMckdUhGMMFyIVB1GGV6TZmlb3WRo0Q==", "publication"=>{"title"=>"oij", "content"=>"oij", "photo"=>"oj"}, "commit"=>"Create Publication"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[36mPublication Create (6.4ms)[0m  [1m[32mINSERT INTO "publications" ("title", "content", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "oij"], ["content", "oij"], ["photo", "oj"], ["created_at", "2022-03-31 03:13:22.284844"], ["updated_at", "2022-03-31 03:13:22.284844"]]
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 14ms (ActiveRecord: 7.1ms | Allocations: 2766)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:13:22 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  Rendered publications/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1175)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1799)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Publications</h1>
+
+<%= link_to "Crear Publicación", publications_new_path %>
+<table align='center'>
+  <tr>
+    <thead>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Photo</th>
+    </thead>
+  </tr>
+    <% @publications.each do |publication| %>
+  <tr>
+    <td><%= publication.title %></td>
+    <td><%= publication.content %></td>
+    <%= if publication.photo.attached?%>
+      <td><%= image_tag(publication.photo) %></td>
+    <% end %>
+
+    <td>
+      <%= link_to "Editar", edit_publication_path(publication) %>
+      <%= link_to "Eliminar", publication, method: :delete, data: { confirm: "Deseas eliminar esta publicación?"} %>
+    </td>
+  </tr>
+    <% end %>
+</table>
+
+<br>
+<%= link_to "Profiles", profiles_path %>
+):
+1:    <h1>Publications</h1>
+2:    
+3:    <%= link_to "Crear Publicación", publications_new_path %>
+4:    <table align='center'>
+5:      <tr>
+6:        <thead>
+7:          <th>Title</th>
+8:          <th>Content</th>
+9:          <th>Photo</th>
+10:        </thead>
+11:      </tr>
+12:        <% @publications.each do |publication| %>
+13:      <tr>
+14:        <td><%= publication.title %></td>
+15:        <td><%= publication.content %></td>
+16:        <%= if publication.photo.attached?%>
+17:          <td><%= image_tag(publication.photo) %></td>
+18:        <% end %>
+19:    
+20:        <td>
+21:          <%= link_to "Editar", edit_publication_path(publication) %>
+22:          <%= link_to "Eliminar", publication, method: :delete, data: { confirm: "Deseas eliminar esta publicación?"} %>
+23:        </td>
+24:      </tr>
+25:        <% end %>
+26:    </table>
+27:    
+28:    <br>
+29:    <%= link_to "Profiles", profiles_path %>
+  
+app/views/publications/index.html.erb:16: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/publications/index.html.erb:18: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:31: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:16: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/publications/index.html.erb:18: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:31: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:16: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/publications/index.html.erb:18: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:31: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:16: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/publications/index.html.erb:18: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:31: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:16: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/publications/index.html.erb:18: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:31: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:16: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/publications/index.html.erb:18: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:25: syntax error, unexpected end, expecting ')'
+app/views/publications/index.html.erb:31: syntax error, unexpected end, expecting ')'
+Started POST "/publications" for ::1 at 2022-03-31 00:13:52 -0300
+Processing by PublicationsController#create as HTML
+  Parameters: {"authenticity_token"=>"ghcNxJ2mnAiuKiE+YChE5l2nI2FmO32YN9mpX1+Q7EJG7E52jV0hzhzfCfO7+FedSyiYhTxwemsI1KEPUL9/NQ==", "publication"=>{"title"=>"jo", "content"=>"jo", "photo"=>"https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"}, "commit"=>"Create Publication"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[36mPublication Create (2.3ms)[0m  [1m[32mINSERT INTO "publications" ("title", "content", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "jo"], ["content", "jo"], ["photo", "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"], ["created_at", "2022-03-31 03:13:52.456977"], ["updated_at", "2022-03-31 03:13:52.456977"]]
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 8ms (ActiveRecord: 2.8ms | Allocations: 2763)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:13:52 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.5ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 13.4ms | Allocations: 2823)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms | Allocations: 4027)
+
+
+  
+ActionView::Template::Error (undefined method `attached?' for "kj":String):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <% if publication.photo.attached? %>
+    17:       <td><%= image_tag(publication.photo) %></td>
+    18:     <% end %>
+    19: 
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+Started GET "/" for ::1 at 2022-03-31 00:14:12 -0300
+  [1m[35m (15.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (5.9ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 19.8ms | Allocations: 7643)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 10.9ms | Allocations: 9922)
+
+
+  
+ActionView::Template::Error (undefined method `attached?' for "kj":String):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <% if publication.photo.attached? %>
+    17:       <td><%= image_tag(publication.photo) %></td>
+    18:     <% end %>
+    19: 
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+Started GET "/" for ::1 at 2022-03-31 00:14:59 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.7ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2542)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.7ms | Allocations: 3019)
+
+
+  
+ActionView::Template::Error (undefined method `attached?' for "kj":String):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <% if publication.photo.attached? %>
+    17:       <td><%= image_tag(publication.photo) %></td>
+    18:     <% end %>
+    19: 
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+Started GET "/" for ::1 at 2022-03-31 00:15:02 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.4ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2542)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms | Allocations: 3018)
+
+
+  
+ActionView::Template::Error (undefined method `attached?' for "kj":String):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <% if publication.photo.attached? %>
+    17:       <td><%= image_tag(publication.photo) %></td>
+    18:     <% end %>
+    19: 
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+Started GET "/profiles" for ::1 at 2022-03-31 00:15:03 -0300
+Processing by ProfilesController#index as HTML
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (120.8ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:15
+  Rendered profiles/index.html.erb within layouts/application (Duration: 139.3ms | Allocations: 1607)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 166ms (Views: 24.0ms | ActiveRecord: 136.7ms | Allocations: 8867)
+
+
+Started GET "/profiles/new" for ::1 at 2022-03-31 00:15:05 -0300
+Processing by ProfilesController#new as HTML
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 3979)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 15.1ms | ActiveRecord: 2.1ms | Allocations: 13624)
+
+
+Started POST "/profiles" for ::1 at 2022-03-31 00:15:13 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"authenticity_token"=>"75hNH3HrJE6F6HmjGd58kzwshtZOhhzZoXd3i9s2ozODj5gKxXty9vB3IndifwWipg/gMQ7w/qQ4a96yszMZWA==", "profile"=>{"name"=>"oij", "description"=>"oil", "email"=>"oij", "work"=>"oij", "age"=>"30", "photo"=>"si"}, "commit"=>"Create Profile"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mProfile Create (7.5ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "description", "email", "work", "age", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "oij"], ["description", "oil"], ["email", "oij"], ["work", "oij"], ["age", 30], ["photo", "si"], ["created_at", "2022-03-31 03:15:13.175241"], ["updated_at", "2022-03-31 03:15:13.175241"]]
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 18ms (ActiveRecord: 8.1ms | Allocations: 3089)
+
+
+Started GET "/profiles" for ::1 at 2022-03-31 00:15:13 -0300
+Processing by ProfilesController#index as HTML
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:15
+  Rendered profiles/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 4584)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms | Allocations: 5048)
+
+
+  
+ActionView::Template::Error (The asset "si" is not present in the asset pipeline.
+):
+    19:     <td><%= profile.email %></td>
+    20:     <td><%= profile.work %></td>
+    21:     <td><%= profile.age %></td>
+    22:     <td><%= image_tag(profile.photo) %></td>
+    23: 
+    24:     <td>
+    25:       <%= link_to "Editar", edit_profile_path(profile) %>
+  
+app/views/profiles/index.html.erb:22
+app/views/profiles/index.html.erb:15
+Started GET "/profiles/new" for ::1 at 2022-03-31 00:17:27 -0300
+Processing by ProfilesController#new as HTML
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 13.6ms | Allocations: 1500)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 29.5ms | ActiveRecord: 0.0ms | Allocations: 5448)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:17:32 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (6.0ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 16.7ms | Allocations: 2536)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 6.0ms | Allocations: 3017)
+
+
+  
+ActionView::Template::Error (undefined method `attached?' for "kj":String):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <% if publication.photo.attached? %>
+    17:       <td><%= image_tag(publication.photo) %></td>
+    18:     <% end %>
+    19: 
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (69.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ProyectoEjemplo_development"[0m
+  [1m[35m (50.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ProyectoEjemplo_test"[0m
+  [1m[35m (119.8ms)[0m  [1m[35mCREATE DATABASE "ProyectoEjemplo_development" ENCODING = 'unicode'[0m
+  [1m[35m (44.5ms)[0m  [1m[35mCREATE DATABASE "ProyectoEjemplo_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7593330866428878795)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOffers (20220328043451)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "offers" ("id" bigserial primary key, "title" character varying, "description" character varying, "salary" integer, "taken" boolean, "business" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043451"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20220328043800)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "description" character varying, "email" character varying, "work" character varying, "age" integer, "photo" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043800"]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePublications (20220328043903)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "publications" ("id" bigserial primary key, "title" character varying, "content" character varying, "photo" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043903"]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameUsersToProfiles (20220328182214)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" RENAME TO "profiles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER INDEX "users_pkey" RENAME TO "profiles_pkey"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "public"."users_id_seq" RENAME TO "profiles_id_seq"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328182214"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-31 03:17:52.100674"], ["updated_at", "2022-03-31 03:17:52.100674"]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7593330866428878795)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/publications" for ::1 at 2022-03-31 00:18:05 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (5.1ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1635)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 13.2ms | ActiveRecord: 6.1ms | Allocations: 9966)
+
+
+Started GET "/publications/new" for ::1 at 2022-03-31 00:18:07 -0300
+Processing by PublicationsController#new as HTML
+  Rendering publications/new.html.erb within layouts/application
+  Rendered publications/new.html.erb within layouts/application (Duration: 10.2ms | Allocations: 3028)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 18.3ms | ActiveRecord: 17.0ms | Allocations: 10983)
+
+
+Started POST "/publications" for ::1 at 2022-03-31 00:18:20 -0300
+Processing by PublicationsController#create as HTML
+  Parameters: {"authenticity_token"=>"Le2jM1P2HhtzZL2UC1YsGDeIyPfO13oavA1fG2saJL6M0Gz22PQPbyn66XAbZ0cycoqhxh4x4FT74T35HyHkuw==", "publication"=>{"title"=>"hola", "content"=>"si", "photo"=>"https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"}, "commit"=>"Create Publication"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[36mPublication Create (1.2ms)[0m  [1m[32mINSERT INTO "publications" ("title", "content", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "hola"], ["content", "si"], ["photo", "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"], ["created_at", "2022-03-31 03:18:20.393745"], ["updated_at", "2022-03-31 03:18:20.393745"]]
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 13ms (ActiveRecord: 6.9ms | Allocations: 2981)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:18:20 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.3ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2802)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 3283)
+
+
+  
+ActionView::Template::Error (undefined method `attached?' for "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg":String):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <% if publication.photo.attached? %>
+    17:       <td><%= image_tag(publication.photo) %></td>
+    18:     <% end %>
+    19: 
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+Started GET "/publications" for ::1 at 2022-03-31 00:19:04 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (12.4ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 21.9ms | Allocations: 2764)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 12.4ms | Allocations: 3983)
+
+
+  
+ActionView::Template::Error (undefined method `attached?' for "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg":String):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <% if publication.photo.attached? %>
+    17:       <td><%= image_tag(publication.photo) %></td>
+    18:     <% end %>
+    19: 
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+Started GET "/publications" for ::1 at 2022-03-31 00:19:05 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.3ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2482)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms | Allocations: 2965)
+
+
+  
+ActionView::Template::Error (undefined method `attached?' for "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg":String):
+    13:   <tr>
+    14:     <td><%= publication.title %></td>
+    15:     <td><%= publication.content %></td>
+    16:     <% if publication.photo.attached? %>
+    17:       <td><%= image_tag(publication.photo) %></td>
+    18:     <% end %>
+    19: 
+  
+app/views/publications/index.html.erb:16
+app/views/publications/index.html.erb:12
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (43.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ProyectoEjemplo_development"[0m
+  [1m[35m (31.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ProyectoEjemplo_test"[0m
+  [1m[35m (113.0ms)[0m  [1m[35mCREATE DATABASE "ProyectoEjemplo_development" ENCODING = 'unicode'[0m
+  [1m[35m (45.6ms)[0m  [1m[35mCREATE DATABASE "ProyectoEjemplo_test" ENCODING = 'unicode'[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7593330866428878795)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOffers (20220328043451)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "offers" ("id" bigserial primary key, "title" character varying, "description" character varying, "salary" integer, "taken" boolean, "business" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043451"]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20220328043800)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "description" character varying, "email" character varying, "work" character varying, "age" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043800"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePublications (20220328043903)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "publications" ("id" bigserial primary key, "title" character varying, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328043903"]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameUsersToProfiles (20220328182214)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" RENAME TO "profiles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER INDEX "users_pkey" RENAME TO "profiles_pkey"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "public"."users_id_seq" RENAME TO "profiles_id_seq"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220328182214"]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-31 03:20:18.423342"], ["updated_at", "2022-03-31 03:20:18.423342"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7593330866428878795)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/publications" for ::1 at 2022-03-31 00:21:46 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (10.7ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:12
+  Rendered publications/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 1531)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 13.9ms | ActiveRecord: 11.9ms | Allocations: 9856)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:22:18 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.4ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:11
+  Rendered publications/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 940)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.4ms | Allocations: 5816)
+
+
+Started GET "/publications/new" for ::1 at 2022-03-31 00:22:20 -0300
+Processing by PublicationsController#new as HTML
+  Rendering publications/new.html.erb within layouts/application
+  Rendered publications/new.html.erb within layouts/application (Duration: 22.9ms | Allocations: 7321)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 123ms (Views: 26.7ms | ActiveRecord: 84.5ms | Allocations: 14539)
+
+
+Started POST "/publications" for ::1 at 2022-03-31 00:22:24 -0300
+Processing by PublicationsController#create as HTML
+  Parameters: {"authenticity_token"=>"tgluAJ4r4Rwfa9AGGxo7OWNUCc/05yCQfjLH2mFJoxsXNKHFFSnwaEX1hOILK1ATJlZg/iQBut453qU4FXJjHg==", "publication"=>{"title"=>"titulo", "content"=>"contenido"}, "commit"=>"Create Publication"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[36mPublication Create (5.6ms)[0m  [1m[32mINSERT INTO "publications" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "titulo"], ["content", "contenido"], ["created_at", "2022-03-31 03:22:24.663066"], ["updated_at", "2022-03-31 03:22:24.663066"]]
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:15:in `create'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 17ms (ActiveRecord: 7.0ms | Allocations: 2955)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:22:24 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.3ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:11
+  Rendered publications/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 813)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.3ms | Allocations: 4762)
+
+
+Started GET "/publications/1/edit" for ::1 at 2022-03-31 00:22:25 -0300
+Processing by PublicationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPublication Load (0.2ms)[0m  [1m[34mSELECT "publications".* FROM "publications" WHERE "publications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publications_controller.rb:23:in `edit'
+  Rendering publications/edit.html.erb within layouts/application
+  Rendered publications/edit.html.erb within layouts/application (Duration: 3.0ms | Allocations: 992)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 12.6ms | ActiveRecord: 0.5ms | Allocations: 6111)
+
+
+Started PATCH "/publication/1" for ::1 at 2022-03-31 00:22:27 -0300
+Processing by PublicationsController#update as HTML
+  Parameters: {"authenticity_token"=>"GpnrqfRrrlJHj7qg0dq47FCP/Tg+uRk2/EWp0ZRyOPUHGBoMlWE9RomEvglkUTjGXnE3Bnk96a3pj8ijWULLPw==", "publication"=>{"title"=>"titulo", "content"=>"contenidjnoio"}, "commit"=>"Update Publication", "id"=>"1"}
+  [1m[36mPublication Load (0.3ms)[0m  [1m[34mSELECT "publications".* FROM "publications" WHERE "publications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publications_controller.rb:27:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:28:in `update'
+  [1m[36mPublication Update (0.8ms)[0m  [1m[33mUPDATE "publications" SET "content" = $1, "updated_at" = $2 WHERE "publications"."id" = $3[0m  [["content", "contenidjnoio"], ["updated_at", "2022-03-31 03:22:27.398678"], ["id", 1]]
+  ↳ app/controllers/publications_controller.rb:28:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:28:in `update'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 45ms (ActiveRecord: 1.4ms | Allocations: 3423)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:22:27 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.3ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:11
+  Rendered publications/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 794)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 4742)
+
+
+Started DELETE "/publication/1" for ::1 at 2022-03-31 00:22:29 -0300
+Processing by PublicationsController#delete as HTML
+  Parameters: {"authenticity_token"=>"a+hLTj4dCLHSYZx59azF5vOWaD6vPm92X53wnc1ylVWvEwj8Lua1d2CUtLQufNad5RnT2vV1aIVgkPjNwl0GIg==", "id"=>"1"}
+  [1m[36mPublication Load (0.2ms)[0m  [1m[34mSELECT "publications".* FROM "publications" WHERE "publications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/publications_controller.rb:36:in `delete'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publications_controller.rb:37:in `delete'
+  [1m[36mPublication Destroy (0.2ms)[0m  [1m[31mDELETE FROM "publications" WHERE "publications"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/publications_controller.rb:37:in `delete'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publications_controller.rb:37:in `delete'
+Redirected to http://localhost:3000/publications
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms | Allocations: 2853)
+
+
+Started GET "/publications" for ::1 at 2022-03-31 00:22:29 -0300
+Processing by PublicationsController#index as HTML
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mPublication Load (0.2ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:11
+  Rendered publications/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 693)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.2ms | Allocations: 4634)
+
+
+Started GET "/profiles" for ::1 at 2022-03-31 00:22:30 -0300
+Processing by ProfilesController#index as HTML
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (29.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:14
+  Rendered profiles/index.html.erb within layouts/application (Duration: 32.4ms | Allocations: 1536)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 5.9ms | ActiveRecord: 30.5ms | Allocations: 6182)
+
+
+Started GET "/profiles/new" for ::1 at 2022-03-31 00:22:32 -0300
+Processing by ProfilesController#new as HTML
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1909)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 10.0ms | ActiveRecord: 14.6ms | Allocations: 10893)
+
+
+Started POST "/profiles" for ::1 at 2022-03-31 00:22:36 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"authenticity_token"=>"FuuqUzuuz3KqvdhNa0nj8l3qeOSs9hvgYv6p5OLO3YR6/H9Gjz6Zyt8ig5kQ6JrDx8keA+yA+Z374gDdistn7w==", "profile"=>{"name"=>"joij", "description"=>"oijo", "email"=>"iojo", "work"=>"ion", "age"=>"89"}, "commit"=>"Create Profile"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[36mProfile Create (0.6ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "description", "email", "work", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "joij"], ["description", "oijo"], ["email", "iojo"], ["work", "ion"], ["age", 89], ["created_at", "2022-03-31 03:22:36.792342"], ["updated_at", "2022-03-31 03:22:36.792342"]]
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:15:in `create'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 12ms (ActiveRecord: 6.9ms | Allocations: 2859)
+
+
+Started GET "/profiles" for ::1 at 2022-03-31 00:22:36 -0300
+Processing by ProfilesController#index as HTML
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:14
+  Rendered profiles/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 822)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.3ms | Allocations: 4766)
+
+
+Started GET "/profiles/1/edit" for ::1 at 2022-03-31 00:22:37 -0300
+Processing by ProfilesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:23:in `edit'
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/edit.html.erb within layouts/application (Duration: 14.4ms | Allocations: 1677)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 55.1ms | ActiveRecord: 0.8ms | Allocations: 6435)
+
+
+Started PATCH "/profile/1" for ::1 at 2022-03-31 00:22:39 -0300
+Processing by ProfilesController#update as HTML
+  Parameters: {"authenticity_token"=>"jzezB8gwLQ/zxHNLxcZ0CO9GI3zzjPSxEFYIIhIHn5Ibap9blOuQE01S5rFhcyw1RjaaCDdy1/PjROEqockdmA==", "profile"=>{"name"=>"joij", "description"=>"oijo", "email"=>"iojo", "work"=>"ionoijoij", "age"=>"89"}, "commit"=>"Update Profile", "id"=>"1"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:27:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:28:in `update'
+  [1m[36mProfile Update (0.5ms)[0m  [1m[33mUPDATE "profiles" SET "work" = $1, "updated_at" = $2 WHERE "profiles"."id" = $3[0m  [["work", "ionoijoij"], ["updated_at", "2022-03-31 03:22:39.721586"], ["id", 1]]
+  ↳ app/controllers/profiles_controller.rb:28:in `update'
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:28:in `update'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 27ms (ActiveRecord: 4.2ms | Allocations: 3455)
+
+
+Started GET "/profiles" for ::1 at 2022-03-31 00:22:39 -0300
+Processing by ProfilesController#index as HTML
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:14
+  Rendered profiles/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 811)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.2ms | Allocations: 4767)
+
+
+Started DELETE "/profile/1" for ::1 at 2022-03-31 00:22:42 -0300
+Processing by ProfilesController#delete as HTML
+  Parameters: {"authenticity_token"=>"OTSdpwmgJzdjLxCaN/kqI2ASTDY4W/xKRtYRjjCAcHr9z94VGVua8dHaOFfsKTlYdp330mIQ+7l52xneP6/jDQ==", "id"=>"1"}
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:36:in `delete'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/profiles_controller.rb:37:in `delete'
+  [1m[36mProfile Destroy (0.3ms)[0m  [1m[31mDELETE FROM "profiles" WHERE "profiles"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/profiles_controller.rb:37:in `delete'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/profiles_controller.rb:37:in `delete'
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 8ms (ActiveRecord: 1.5ms | Allocations: 2850)
+
+
+Started GET "/profiles" for ::1 at 2022-03-31 00:22:42 -0300
+Processing by ProfilesController#index as HTML
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  ↳ app/views/profiles/index.html.erb:14
+  Rendered profiles/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 699)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.3ms | Allocations: 4638)
+
+

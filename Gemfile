@@ -58,4 +58,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'rubocop', require: false
 gem 'rubocop-rails', '~> 2.14', '>= 2.14.2'
 
-gem 'activesupport', '~> 6.1.5'
+gem 'activesupport', '~> 6.0.4'

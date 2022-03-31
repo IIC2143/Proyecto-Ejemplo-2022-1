@@ -1,4 +1,4 @@
-class CreateOffers < ActiveRecord::Migration[6.1]
+class CreateOffers < ActiveRecord::Migration[6.0]
   def change
     create_table :offers do |t|
       t.string :title

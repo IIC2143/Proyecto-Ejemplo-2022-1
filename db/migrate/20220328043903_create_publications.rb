@@ -1,9 +1,8 @@
-class CreatePublications < ActiveRecord::Migration[6.1]
+class CreatePublications < ActiveRecord::Migration[6.0]
   def change
     create_table :publications do |t|
       t.string :title
       t.string :content
-      t.string :photo
 
       t.timestamps
     end
