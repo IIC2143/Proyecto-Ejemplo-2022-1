@@ -22,6 +22,7 @@
     <td>
       <%= link_to "Editar", edit_profile_path(profile) %>
       <%= link_to "Eliminar", profile, method: :delete, data: { confirm: "Deseas eliminar este perfil?"} %>
+      <%= link_to "Mostrar", profile_path(profile) %>
     </td>
   </tr>
     <% end %>
