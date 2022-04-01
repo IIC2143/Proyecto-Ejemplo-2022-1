@@ -6,6 +6,10 @@ class ProfilesController < ApplicationController
     @profiles = Profile.all
   end
 
+  def show
+    @profile = Profile.find(params[:id])
+  end
+
   def new
     @profile = Profile.new
   end
@@ -41,6 +45,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:name, :description, :email, :work, :age, :photo)
+    params.require(:profile).permit(:name, :description, :email, :work, :age)
   end
 end

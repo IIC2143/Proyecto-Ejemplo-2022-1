@@ -1,0 +1,19 @@
+<h1>Publicación</h1>
+
+<table align='center'>
+  <tr>
+    <thead>
+      <th>Title</th>
+      <th>Content</th>
+    </thead>
+    <td><%= @publication.title %></td>
+    <td><%= @publication.content %></td>
+
+  </tr>
+</table>
+
+<br>
+
+<%= link_to "Publicaciones", publications_path %>
+<%= link_to "Editar", edit_publication_path(@publication) %>
+<%= link_to "Eliminar", @publication, method: :delete, data: { confirm: "Deseas eliminar esta publicación?"} %>

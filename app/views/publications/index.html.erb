@@ -6,18 +6,17 @@
     <thead>
       <th>Title</th>
       <th>Content</th>
-      <th>Photo</th>
     </thead>
   </tr>
     <% @publications.each do |publication| %>
   <tr>
     <td><%= publication.title %></td>
     <td><%= publication.content %></td>
-    <td><%= image_tag(publication.photo) %></td>
 
     <td>
       <%= link_to "Editar", edit_publication_path(publication) %>
       <%= link_to "Eliminar", publication, method: :delete, data: { confirm: "Deseas eliminar esta publicación?"} %>
+      <%= link_to "Mostrar", publication_path(publication) %>
     </td>
   </tr>
     <% end %>

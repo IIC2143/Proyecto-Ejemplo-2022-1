@@ -1,3 +1,5 @@
+<!-- #  Nombre de la Ayudantía (Editar nombre y descomentar )-->
+
 ## Description
 
 <!--
@@ -7,7 +9,15 @@ You may want to use [closing keywords](
 https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
 -->
 
-This pull request aims to <!-- make IIC2143 a better place. -->
+<!-- Complete what/how segments for each relevant change -->
+
+### What
+
+<!-- Show visible frontend change, include screenshots and explanations -->
+
+### How
+
+<!-- Show the code behind the change, and any necessary commands -->
 
 ## Requirements
 

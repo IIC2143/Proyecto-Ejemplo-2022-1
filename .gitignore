@@ -9,13 +9,12 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
-/log
 /config/master.key
+/log
 
 # Used by dotenv library to load environment variables.
 .env
 .DS_Store
-
 
 # Ignore Byebug command history file.
 .byebug_history

@@ -1,4 +1,4 @@
-class RenameUsersToProfiles < ActiveRecord::Migration[6.1]
+class RenameUsersToProfiles < ActiveRecord::Migration[6.0]
   def self.up
     rename_table :users, :profiles
   end

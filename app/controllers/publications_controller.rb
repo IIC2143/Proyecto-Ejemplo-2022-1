@@ -6,6 +6,10 @@ class PublicationsController < ApplicationController
     @publications = Publication.all
   end
 
+  def show
+    @publication = Publication.find(params[:id])
+  end
+
   def new
     @publication = Publication.new
   end
@@ -41,6 +45,6 @@ class PublicationsController < ApplicationController
   private
 
   def publication_params
-    params.require(:publication).permit(:title, :content, :photo)
+    params.require(:publication).permit(:title, :content)
   end
 end
