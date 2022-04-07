@@ -121,9 +121,6 @@ RSpec.describe "Profiles", type: :request do
             @profile = Profile.create!(@attr_user)
             expect{
             delete "/profile/#{@profile.id}"
-            # Se recarga la instancia de profiele nuevamente con los posibles nuevos atributos
-            # Luego se revisa si cambió alguno de los atributos del usuario
-            @profile.reload
             }.to change(Profile, :count).by(-1)
             
         end

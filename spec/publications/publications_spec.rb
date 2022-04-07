@@ -43,7 +43,7 @@ RSpec.describe Publication, type: :request do
         # Se pasan atributos invalidos y se ve que la cuenta de Publicaciones no cambie
         it "shouldn't increase count of Publications" do
             expect {
-            post "/profiles", params: {profile: invalid_attr_publication}
+            post "/publications", params: {publication: invalid_attr_publication}
             }.to change(Publication, :count).by(0)
         end
     end
@@ -85,9 +85,6 @@ RSpec.describe Publication, type: :request do
         it "should decrease count of Publication by 1" do
             expect{
             delete "/publication/#{publication.id}"
-            # Se recarga la instancia de profiele nuevamente con los posibles nuevos atributos
-            # Luego se revisa si cambió alguno de los atributos del usuario
-            #@profile.reload
             }.to change(Publication, :count).by(-1)
             
         end
