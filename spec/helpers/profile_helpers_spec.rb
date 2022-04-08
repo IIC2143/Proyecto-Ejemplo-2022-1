@@ -1,9 +1,9 @@
 require 'rails_helper'
-include UsersHelper
+include ProfilesHelper
 
-RSpec.describe 'Users', type: :request do
+RSpec.describe 'Profiles', type: :request do
 
-    describe 'Users helper methods' do
+    describe 'Profiles helper methods' do
 
         it 'should return true' do
             mail = 'iic2143@testing.cl'

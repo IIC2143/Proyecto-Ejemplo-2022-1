@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Users Helper
-module UsersHelper
+# Profile Helper
+module ProfilesHelper
     # este helper verifica que el mail ingresado por
     # el usuario tenga un '@'
     def arroba_in_mail(mail)
