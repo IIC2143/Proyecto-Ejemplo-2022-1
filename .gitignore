@@ -71,3 +71,5 @@ yarn-debug.log*
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+coverage
+./log/development.log
