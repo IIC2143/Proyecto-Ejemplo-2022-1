@@ -5,7 +5,7 @@ require 'faker'
 # y sin la necesidad de que nosotros le asignemos los parámetros al momento de crearla.
 FactoryBot.define do
   factory :publication do
-    title { Faker::Lorem.words(rand(10..20)) }
+    title { Faker::Lorem.words(number: rand(10..20)) }
     content { Faker::Lorem.paragraph }
   end
 end

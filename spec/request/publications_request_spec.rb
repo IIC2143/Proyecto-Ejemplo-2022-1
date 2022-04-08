@@ -6,7 +6,7 @@ RSpec.describe Publication, type: :request do
 
     # Aquí se utiliza la factory de Publication para la creación de una publicación
     let!(:publication) { create(:publication) }
-    let!(:attr_publication){ {:title => Faker::Lorem.words(10..20), :content => Faker::Lorem.paragraph}}
+    let!(:attr_publication){ {:title => Faker::Lorem.words(number: rand(10..20)), :content => Faker::Lorem.paragraph}}
     let!(:invalid_attr_publication){ {:title => Faker::Lorem.words(number:1), :content => Faker::Lorem.paragraph}}
     # Se describe lo que se testea
     describe 'get index' do
