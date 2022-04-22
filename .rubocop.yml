@@ -22,6 +22,9 @@ AllCops:
 Layout/LineLength:
   Max: 120
   Enabled: true
+  Except: 
+  - 'spec/request/profile_request_spec.rb'
+  - 'spec/request/publications_request_spec.rb'
 Layout/AssignmentIndentation:
   Enabled: true
 Layout/ClosingParenthesisIndentation:
@@ -96,6 +99,8 @@ Lint/UselessAssignment:
   Enabled: true
 Lint/EmptyBlock:
   Enabled: true
+  Exclude:
+  - 'spec/factories/users.rb'
 Lint/AssignmentInCondition:
   Enabled: true
 Lint/EmptyExpression:
@@ -104,3 +109,8 @@ Lint/ShadowedArgument:
   Enabled: true
 
 ### Añade aquí todos los Cops que quieras:
+Metrics/BlockLength:
+  Exclude:
+  - 'spec/models/profile_spec.rb'
+  - 'spec/request/profile_request_spec.rb'
+  - 'spec/request/publications_request_spec.rb'
