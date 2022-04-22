@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'faker'
 
 # Una factory nos permitirá crear de manera sencilla instancias de una clase con diferentes valores

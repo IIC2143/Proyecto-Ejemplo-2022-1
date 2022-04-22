@@ -10,6 +10,25 @@
   </head>
 
   <body align='center'>
+
+    <!-- Se añade una flag de alerta para los mensjaes que genere devise -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    
+    <!-- Acá checkeamos si existe un current_user, es decir el usuario está 
+         loggeado se le muestra su nombre de usuario y las opciones de editar perfil y cerrar sesión -->
+    <% if current_user %>
+      <p>Welcome! <%= current_user.username %></p>
+      <%= link_to "Editar Perfil", edit_user_registration_path %>
+      <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+    <% else %>
+    <!-- En otro caso le mostramos las opciones de inicio sesión y registro -->
+      <%= link_to "Iniciar Sesión", new_user_session_path %>
+      <%= link_to "Registrarme", new_user_registration_path %>
+    <% end %>
+    
     <%= yield %>
+
+
   </body>
 </html>

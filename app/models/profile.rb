@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Missing top-level documentation comment for class Profile
 class Profile < ApplicationRecord
   validates :name, length: { minimum: 2 }
   validates :description, length: { minimum: 5 }
