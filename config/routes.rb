@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   patch '/profile/:id', to: 'profiles#update'
   delete '/profile/:id', to: 'profiles#delete'
 
+  # publications
   get '/publications', to: 'publications#index'
   get '/publications/new', to: 'publications#new'
   post '/publications', to: 'publications#create'
@@ -23,4 +24,10 @@ Rails.application.routes.draw do
   get '/publications/:id/edit', to: 'publications#edit', as: 'edit_publication'
   patch '/publication/:id', to: 'publications#update'
   delete '/publication/:id', to: 'publications#delete'
+
+  # comments
+  get '/comments/new', to: 'comments#new'
+  post '/comments', to: 'comments#create'
+  delete '/comments/:id', to: 'comments#delete', as: 'comments_delete'
+
 end
