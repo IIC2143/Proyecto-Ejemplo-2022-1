@@ -8,10 +8,6 @@ class UsersController < ApplicationController
 
     @publications = Publication.where(user_id: current_user.id).all
     @user = current_user
-    @comments = {}
-    @publications.each do |publication|
-      @comments[publication.id] = publication.comments.order(created_at: :desc)
-    end
   end
 
   def delete
