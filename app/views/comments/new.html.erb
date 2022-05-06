@@ -1,0 +1,15 @@
+<h1>New Comment</h1>
+
+<%= form_for @comment do |f| %>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </div>
+  <div>
+    <%= f.hidden_field :publication_id, value: @publication_id %>
+  </div>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

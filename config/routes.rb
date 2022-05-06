@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   delete '/publication/:id', to: 'publications#delete'
 
   # comments
-  get '/comments/new', to: 'comments#new'
+  get '/comments/:publication_id/new', to: 'comments#new', as: 'new_comment'
   post '/comments', to: 'comments#create'
   delete '/comments/:id', to: 'comments#delete', as: 'comments_delete'
 end
