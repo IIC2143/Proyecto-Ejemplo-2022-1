@@ -1,0 +1,46 @@
+<% if current_user %>
+    <h1>Perfil</h1>
+
+    <table align='center'>
+    <tr>
+        <thead>
+        <th>Nombre</th>
+        <th>Usuario</th>
+        <th>Edad</th>
+        <th>Email</th>
+        <th>Trabajo</th>
+        <th>Teléfono</th>
+
+        </thead>
+        <td><%= @user.name %></td>
+        <td><%= @user.username %></td>
+        <td><%= @user.age %></td>
+        <td><%= @user.email %></td>
+        <td><%= @user.work %></td>
+        <td><%= @user.phone %></td>
+    </tr>
+    </table>
+    <br>
+    <%= link_to "Editar", edit_user_registration_url(@user) %>
+<h2> Mis Publicaciones</h2>
+<table align='center'>
+    <tr>
+        <thead>
+        <th>Título</th> 
+        <th>Contenido</th>
+        <th>Acciones</th>
+        </thead>
+        <% @publications.each do |publication| %>
+            <tr>
+                <td><%= publication.title %></td>
+                <td><%= publication.content %></td>
+                <td>
+                    <%= link_to "Mostrar", publication_path(publication) %>
+                    <%= link_to "Eliminar", publication, method: :delete, data: { confirm: "Deseas eliminar esta publicación?"} %>
+                    <%= link_to "Editar", edit_publication_path(publication) %>
+                </td>
+            </tr>
+        <% end %>
+    </tr>
+</table>
+<% end %>
