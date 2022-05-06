@@ -19,7 +19,9 @@
          loggeado se le muestra su nombre de usuario y las opciones de editar perfil y cerrar sesión -->
     <% if current_user %>
       <p>Welcome! <%= current_user.username %></p>
-      <%= link_to "Editar Perfil", edit_user_registration_path %>
+      <%= link_to "Publicaciones", publications_path %>
+
+      <%= link_to "Mi Perfil", profile_path(current_user.id) %>
       <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
     <% else %>
     <!-- En otro caso le mostramos las opciones de inicio sesión y registro -->
