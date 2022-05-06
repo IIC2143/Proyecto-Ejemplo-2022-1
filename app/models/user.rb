@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# users helper
 class User < ApplicationRecord
   has_many :publications, dependent: :destroy
   has_many :comments, dependent: :destroy

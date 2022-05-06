@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# user controller
 class UsersController < ApplicationController
   def profile
     # redirect to login page if not logged in

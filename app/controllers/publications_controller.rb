@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# publication controller
 class PublicationsController < ApplicationController
   def index
     @publications = Publication.all

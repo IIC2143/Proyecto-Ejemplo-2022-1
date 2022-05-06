@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# offers controller
 class OffersController < ApplicationController
   def new
     @offer = Comment.new

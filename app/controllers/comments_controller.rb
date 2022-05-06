@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# comments controller
 class CommentsController < ApplicationController
   def new
     return redirect_to new_user_session_url if current_user.nil?
@@ -12,13 +13,12 @@ class CommentsController < ApplicationController
     return redirect_to new_user_session_url if current_user.nil?
 
     comment_params[:publication_id] = params[:publication_id].to_i
-
     puts("params: #{comment_params}")
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     puts("@comment: #{@comment.inspect}")
-    if @comment.save
 
+    if @comment.save
       redirect_to publication_path(@comment.publication_id)
     else
       render :new
