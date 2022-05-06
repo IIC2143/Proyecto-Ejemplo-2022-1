@@ -4,8 +4,8 @@ class User < ApplicationRecord
   has_many :publications, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :offers
-  has_many :offerers, :through => :offers, :class_name => "User"
-  has_many :aplicants, :through => :offers, :class_name => "User"
+  has_many :offerers, through: :offers, class_name: 'User'
+  has_many :aplicants, through: :offers, class_name: 'User'
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

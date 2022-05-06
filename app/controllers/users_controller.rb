@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Users Controller
 class UsersController < ApplicationController
   def profile
     # redirect to login page if not logged in
@@ -16,4 +15,3 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 end
-  
