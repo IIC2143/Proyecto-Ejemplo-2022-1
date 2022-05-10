@@ -48,13 +48,13 @@ module Users
     # Añadimos los nuevos parámetros para que devise permita agregarlos a los datos de usuario.
     # If you have extra params to permit, append them to the sanitizer.
     def configure_sign_up_params
-      devise_parameter_sanitizer.permit(:sign_up, keys: %i[username phone age])
+      devise_parameter_sanitizer.permit(:sign_up, keys: %i[username phone age name description work])
     end
 
     # Añadimos los nuevos parámetros para que devise permita actualizar los datos de usuario.
     # If you have extra params to permit, append them to the sanitizer.
     def configure_account_update_params
-      devise_parameter_sanitizer.permit(:account_update, keys: %i[username phone age])
+      devise_parameter_sanitizer.permit(:account_update, keys: %i[username phone age name description work])
     end
 
     # The path used after sign up.

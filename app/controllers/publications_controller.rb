@@ -1,13 +1,18 @@
 # frozen_string_literal: true
 
-# Publications Controller
+# publication controller
 class PublicationsController < ApplicationController
   def index
     @publications = Publication.all
+    @comments = {}
+    @publications.each do |publication|
+      @comments[publication.id] = publication.comments.order(created_at: :desc)
+    end
   end
 
   def show
     @publication = Publication.find(params[:id])
+    @comments = @publication.comments.all
   end
 
   def new
@@ -16,6 +21,7 @@ class PublicationsController < ApplicationController
 
   def create
     @publication = Publication.new(publication_params)
+    @publication.user = current_user
     if @publication.save
       redirect_to publications_path
     else

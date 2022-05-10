@@ -8,7 +8,6 @@
     </thead>
     <td><%= @publication.title %></td>
     <td><%= @publication.content %></td>
-
   </tr>
 </table>
 
@@ -17,3 +16,25 @@
 <%= link_to "Publicaciones", publications_path %>
 <%= link_to "Editar", edit_publication_path(@publication) %>
 <%= link_to "Eliminar", @publication, method: :delete, data: { confirm: "Deseas eliminar esta publicación?"} %>
+
+
+<h2>Comentarios</h2>
+<%= link_to "Crear comentario", new_comment_path(@publication.id) %>
+
+<table align='center'>
+    <tr>
+      <thead>
+        <th>Nombre</th>
+        <th>Content</th>
+      </thead>
+    </tr>
+      <% @comments.each do |comment|%>
+    <tr>
+      <td><%= comment.user.name %></td>
+      <td><%= comment.content %></td>
+      <td>
+        <%= link_to "Eliminar", comments_delete_path(comment.id), method: :delete, data: { confirm: "Desea eliminar este comentario?"} %>
+      </td>
+    </tr>
+      <% end %>
+</table>

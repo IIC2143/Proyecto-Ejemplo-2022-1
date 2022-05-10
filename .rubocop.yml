@@ -114,3 +114,7 @@ Metrics/BlockLength:
   - 'spec/models/profile_spec.rb'
   - 'spec/request/profile_request_spec.rb'
   - 'spec/request/publications_request_spec.rb'
+
+Metrics/AbcSize:
+  Exclude:
+  - 'app/controllers/comments_controller.rb'

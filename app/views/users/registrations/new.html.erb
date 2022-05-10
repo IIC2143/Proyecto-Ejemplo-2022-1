@@ -8,6 +8,20 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description, autofocus: true, autocomplete: "description" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :work %><br />
+    <%= f.text_field :work, autofocus: true, autocomplete: "work" %>
+  </div>
   <!-- Añadimos al form original de devise las opciones de agregar un username, phone y age -->
   <div class="field">
     <%= f.label :username %><br />
